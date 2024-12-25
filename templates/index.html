@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediConnect - Your Comprehensive Medical Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>MediConnect</h1>
+            <p>Your comprehensive medical platform.</p>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Helping You Navigate Healthcare</h2>
+            <p>Our experts can help you find the right plan at no cost and with no obligation.</p>
+            <a href="{{ url_for('register') }}" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Services We Offer</h2>
+            <div class="feature">
+                <h3>Appointment Management</h3>
+                <p>Book, reschedule, or cancel appointments easily.</p>
+            </div>
+            <div class="feature">
+                <h3>Teleconsultation</h3>
+                <p>Connect with healthcare providers via video calls.</p>
+            </div>
+            <div class="feature">
+                <h3>Health Tracking</h3>
+                <p>Log and monitor your vital health metrics.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Are Saying</h2>
+            <blockquote>"MediConnect made it easy to understand my healthcare options!" - Jamie</blockquote>
+            <blockquote>"Thanks to MediConnect, I found a plan that truly meets my needs." - Chris</blockquote>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MediConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
