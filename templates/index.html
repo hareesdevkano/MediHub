@@ -3,63 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MediConnect - Your comprehensive medical platform for appointment management, teleconsultation, and health tracking">
+    <meta name="keywords" content="healthcare, medical platform, appointment management, teleconsultation">
     <title>MediConnect - Your Comprehensive Medical Platform</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Preload hero image for better performance -->
+    <link rel="preload" as="image" href="{{ url_for('static', filename='images/hero-bg.jpg') }}">
+    <!-- Add favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
-    <header>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="site-header">
         <div class="container">
-            <h1>MediConnect</h1>
-            <p>Your comprehensive medical platform.</p>
-            <nav>
-                <ul>
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
-                </ul>
-            </nav>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="MediConnect Logo" class="logo">
+                    <h1>MediConnect</h1>
+                </div>
+                <nav class="main-nav" aria-label="Main navigation">
+                    <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+                        <span class="sr-only">Menu</span>
+                        <span class="hamburger"></span>
+                    </button>
+                    <ul id="primary-menu" class="nav-menu">
+                        <li><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
+                        <li><a href="{{ url_for('services') }}" class="nav-link">Services</a></li>
+                        <li><a href="{{ url_for('login') }}" class="nav-link login-btn">Login</a></li>
+                        <li><a href="{{ url_for('register') }}" class="nav-link register-btn">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>Helping You Navigate Healthcare</h2>
-            <p>Our experts can help you find the right plan at no cost and with no obligation.</p>
-            <a href="{{ url_for('register') }}" class="cta-button">Get Started</a>
-        </div>
-    </section>
-
-    <section class="features">
-        <div class="container">
-            <h2>Services We Offer</h2>
-            <div class="feature">
-                <h3>Appointment Management</h3>
-                <p>Book, reschedule, or cancel appointments easily.</p>
+    <main id="main-content">
+        <section class="hero" aria-label="Hero section">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Helping You Navigate Healthcare</h2>
+                    <p class="hero-text">Connect with expert healthcare providers and manage your health journey seamlessly.</p>
+                    <div class="cta-group">
+                        <a href="{{ url_for('register') }}" class="btn btn-primary">Get Started</a>
+                        <a href="{{ url_for('learn_more') }}" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
             </div>
-            <div class="feature">
-                <h3>Teleconsultation</h3>
-                <p>Connect with healthcare providers via video calls.</p>
-            </div>
-            <div class="feature">
-                <h3>Health Tracking</h3>
-                <p>Log and monitor your vital health metrics.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="testimonials">
-        <div class="container">
-            <h2>What Our Clients Are Saying</h2>
-            <blockquote>"MediConnect made it easy to understand my healthcare options!" - Jamie</blockquote>
-            <blockquote>"Thanks to MediConnect, I found a plan that truly meets my needs." - Chris</blockquote>
-        </div>
-    </section>
+        <section class="features" aria-labelledby="features-title">
+            <div class="container">
+                <h2 id="features-title" class="section-title">Our Services</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg aria-hidden="true" class="icon icon-calendar"></svg>
+                        </div>
+                        <h3>Appointment Management</h3>
+                        <p>Schedule and manage your medical appointments with ease. Real-time availability and instant confirmations.</p>
+                        <a href="{{ url_for('appointments') }}" class="feature-link">Learn more about appointments</a>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg aria-hidden="true" class="icon icon-video"></svg>
+                        </div>
+                        <h3>Teleconsultation</h3>
+                        <p>Connect with healthcare providers from the comfort of your home through secure video consultations.</p>
+                        <a href="{{ url_for('teleconsult') }}" class="feature-link">Explore teleconsultation</a>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg aria-hidden="true" class="icon icon-health"></svg>
+                        </div>
+                        <h3>Health Tracking</h3>
+                        <p>Monitor your vital health metrics and get personalized insights to maintain optimal health.</p>
+                        <a href="{{ url_for('health_tracking') }}" class="feature-link">Discover health tracking</a>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-    <footer>
+        <section class="testimonials" aria-labelledby="testimonials-title">
+            <div class="container">
+                <h2 id="testimonials-title" class="section-title">Patient Stories</h2>
+                <div class="testimonials-slider" role="region" aria-label="Testimonials carousel">
+                    <div class="testimonial-card">
+                        <img src="{{ url_for('static', filename='images/testimonials/jamie.jpg') }}" alt="" class="testimonial-image">
+                        <blockquote>
+                            <p>"MediConnect transformed how I manage my healthcare. The platform is intuitive and the support team is exceptional!"</p>
+                            <footer>
+                                <cite>- Jamie Thompson, Patient since 2023</cite>
+                            </footer>
+                        </blockquote>
+                    </div>
+                    <!-- Add more testimonial cards as needed -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2024 MediConnect. All rights reserved.</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('about') }}">About Us</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                        <li><a href="{{ url_for('privacy') }}">Privacy Policy</a></li>
+                        <li><a href="{{ url_for('terms') }}">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Connect With Us</h3>
+                    <ul class="social-links">
+                        <li><a href="#" aria-label="Follow us on Facebook"><svg class="icon icon-facebook"></svg></a></li>
+                        <li><a href="#" aria-label="Follow us on Twitter"><svg class="icon icon-twitter"></svg></a></li>
+                        <li><a href="#" aria-label="Follow us on LinkedIn"><svg class="icon icon-linkedin"></svg></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediConnect. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
 </body>
 </html>
-
